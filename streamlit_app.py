@@ -264,8 +264,26 @@ if run:
     st.subheader("Top Matching Chunks")
 
     display_df = top_df[
-        ["number", "title", "start", "end", "text"]
-    ].copy()
+    ["number", "title", "start", "end", "text"]
+].copy()
+
+
+def seconds_to_hms(seconds):
+    seconds = int(float(seconds))
+
+    hrs = seconds // 3600
+    mins = (seconds % 3600) // 60
+    secs = seconds % 60
+
+    if hrs > 0:
+        return f"{hrs:02d}:{mins:02d}:{secs:02d}"
+
+    return f"{mins:02d}:{secs:02d}"
+
+
+display_df["start"] = display_df["start"].apply(seconds_to_hms)
+
+display_df["end"] = display_df["end"].apply(seconds_to_hms)
 
     display_df["text"] = (
         display_df["text"]
