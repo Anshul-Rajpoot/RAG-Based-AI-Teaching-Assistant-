@@ -102,7 +102,7 @@ User asked this question related to the video chunks, you have to answer in a hu
 
 def templated_answer(chunks_df: pd.DataFrame) -> str:
     lines = [
-        "Ollama is not running, so I’m showing a retrieval-only answer.",
+      
         "Closest matching parts from the subtitles:",
         "",
     ]
