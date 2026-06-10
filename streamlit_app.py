@@ -361,9 +361,7 @@ query = st.chat_input(
 
 if query:
 
-    with st.spinner(
-        "🔍 Searching videos..."
-    ):
+    with st.spinner("🔍 Searching videos..."):
 
         top_df = rank_chunks(
             df,
@@ -372,26 +370,38 @@ if query:
             use_ollama
         )
 
-    st.subheader(
-        "🤖 AI Answer"
-    )
+    st.subheader("🤖 AI Answer")
 
     prompt = build_prompt(
         top_df,
         query
     )
-if use_ollama:
 
-    if stream_llm:
+    if use_ollama:
 
-        placeholder = st.empty()
-        response = ""
+        if stream_llm:
 
-        for token in generate_ollama_stream(prompt):
+            placeholder = st.empty()
+            response = ""
 
-            response += token
+            for token in generate_ollama_stream(prompt):
 
-            placeholder.markdown(
+                response += token
+
+                placeholder.markdown(
+                    f"""
+                    <div class='answer-box'>
+                    {response}
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+        else:
+
+            response = generate_ollama(prompt)
+
+            st.markdown(
                 f"""
                 <div class='answer-box'>
                 {response}
@@ -402,55 +412,41 @@ if use_ollama:
 
     else:
 
-        response = generate_ollama(prompt)
+        st.info(
+            "🔍 Retrieval Mode Active — Ollama not detected."
+        )
 
         st.markdown(
-            f"""
+            """
             <div class='answer-box'>
-            {response}
+            Showing the most relevant video segments below.
+            Start Ollama to get AI-generated explanations.
             </div>
             """,
             unsafe_allow_html=True
         )
 
-else:
+    st.subheader("📹 Relevant Video Segments")
 
-    st.warning(
-        "Ollama not running. Using retrieval mode."
-    )
-
-    st.markdown(
-        """
-        <div class='answer-box'>
-        Showing the most relevant video segments below.
-        Start Ollama to get AI-generated explanations.
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-st.subheader(
-    "📹 Relevant Video Segments"
-)
-   for _, row in top_df.iterrows():
+    for _, row in top_df.iterrows():
 
         start_time = seconds_to_hms(row["start"])
         end_time = seconds_to_hms(row["end"])
-    
+
         with st.container(border=True):
-    
+
             st.markdown(
                 f"### 📹 Video {row['number']}"
             )
-    
+
             st.markdown(
                 f"**{row['title']}**"
             )
-    
+
             st.caption(
                 f"🕒 {start_time} - {end_time}"
             )
-    
+
             st.write(
                 str(row["text"])[:250] + "..."
             )
