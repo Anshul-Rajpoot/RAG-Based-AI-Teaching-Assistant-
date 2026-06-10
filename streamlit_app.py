@@ -84,10 +84,9 @@ with st.sidebar:
 
     st.title("🎓 Sigma AI Assistant")
 
-    st.success("RAG + Ollama + Llama 3.2")
 
     with st.expander("👨‍💻 Developer", expanded=True):
-        st.write("Anshul Rajpoot")
+        st.write("Anshul Rajpoot  (2311401168)")
         st.write("MANIT Bhopal")
         st.write("ECE Department")
 
@@ -419,7 +418,7 @@ if query:
             <div class='result-card'>
             <h4>Video {row['number']}</h4>
             <b>{row['title']}</b><br><br>
-            ⏱️ {row['start']}s → {row['end']}s<br><br>
+            ⏱️ {seconds_to_hms(row['start'])} → {seconds_to_hms(row['end'])}<br><br>
             {str(row['text'])[:300]}...
             </div>
             """,
