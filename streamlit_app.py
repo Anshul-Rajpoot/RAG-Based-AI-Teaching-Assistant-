@@ -300,9 +300,27 @@ Explain:
 Answer naturally.
 """
 
+
+# --------------------------------------------------
+# TIME FORMATTER
+# --------------------------------------------------
+def seconds_to_hms(seconds):
+
+    seconds = int(float(seconds))
+
+    hrs = seconds // 3600
+    mins = (seconds % 3600) // 60
+    secs = seconds % 60
+
+    if hrs > 0:
+        return f"{hrs:02d}:{mins:02d}:{secs:02d}"
+
+    return f"{mins:02d}:{secs:02d}"
+
 # --------------------------------------------------
 # MAIN
 # --------------------------------------------------
+
 try:
 
     df = load_embeddings_df()
@@ -406,6 +424,16 @@ if query:
         st.warning(
             "Ollama not running. Using retrieval mode."
         )
+
+    st.markdown(
+        """
+        <div class='answer-box'>
+        Showing the most relevant video segments below.
+        Start Ollama to get AI-generated explanations.
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     st.subheader(
         "📹 Relevant Video Segments"
