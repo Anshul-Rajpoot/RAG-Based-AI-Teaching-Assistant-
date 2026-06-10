@@ -5,6 +5,8 @@ An AI-powered Retrieval-Augmented Generation (RAG) Teaching Assistant built usin
 
 This project allows users to ask questions related to course videos.  
 The assistant retrieves the most relevant subtitle chunks from the course content and optionally generates intelligent answers using local LLMs via Ollama.
+<img width="1536" height="666" alt="image" src="https://github.com/user-attachments/assets/5941a08d-1e32-4a66-9280-308ad68e846b" />
+
 
 ---
 
