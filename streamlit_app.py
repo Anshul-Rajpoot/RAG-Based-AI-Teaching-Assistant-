@@ -380,37 +380,18 @@ if query:
         top_df,
         query
     )
+if use_ollama:
 
-    if use_ollama:
+    if stream_llm:
 
-        if stream_llm:
+        placeholder = st.empty()
+        response = ""
 
-            placeholder = st.empty()
+        for token in generate_ollama_stream(prompt):
 
-            response = ""
+            response += token
 
-            for token in generate_ollama_stream(
-                prompt
-            ):
-
-                response += token
-
-                placeholder.markdown(
-                    f"""
-                    <div class='answer-box'>
-                    {response}
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-
-        else:
-
-            response = generate_ollama(
-                prompt
-            )
-
-            st.markdown(
+            placeholder.markdown(
                 f"""
                 <div class='answer-box'>
                 {response}
@@ -421,9 +402,22 @@ if query:
 
     else:
 
-        st.warning(
-            "Ollama not running. Using retrieval mode."
+        response = generate_ollama(prompt)
+
+        st.markdown(
+            f"""
+            <div class='answer-box'>
+            {response}
+            </div>
+            """,
+            unsafe_allow_html=True
         )
+
+else:
+
+    st.warning(
+        "Ollama not running. Using retrieval mode."
+    )
 
     st.markdown(
         """
@@ -435,10 +429,9 @@ if query:
         unsafe_allow_html=True
     )
 
-    st.subheader(
-        "📹 Relevant Video Segments"
-    )
-
+st.subheader(
+    "📹 Relevant Video Segments"
+)
    for _, row in top_df.iterrows():
 
         start_time = seconds_to_hms(row["start"])
