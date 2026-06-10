@@ -433,7 +433,10 @@ if query:
         start_time = seconds_to_hms(row["start"])
         end_time = seconds_to_hms(row["end"])
 
-        with st.container(border=True):
+        with st.expander(
+            f"📹 Video {row['number']} - {row['title']}",
+            expanded=True
+        ):
 
             st.markdown(
                 f"### 📹 Video {row['number']}"
@@ -443,10 +446,5 @@ if query:
                 f"**{row['title']}**"
             )
 
-            st.caption(
-                f"🕒 {start_time} - {end_time}"
-            )
-
-            st.write(
-                str(row["text"])[:250] + "..."
-            )
+            st.caption(f"🕒 {start_time} - {end_time}")
+            st.write(str(row["text"])[:250] + "...")
