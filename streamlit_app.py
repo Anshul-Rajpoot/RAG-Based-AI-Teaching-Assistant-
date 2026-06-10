@@ -13,7 +13,23 @@ from sklearn.metrics.pairwise import cosine_similarity
 OLLAMA_BASE_URL = "http://localhost:11434"
 
 
+
+# --------------------------------------------------
+# SIDEBAR
+# --------------------------------------------------
+st.sidebar.title("🎓 Project Info")
+st.sidebar.markdown("""
+### 👨‍💻 Developer
+
+**Anshul Rajpoot**  
+📘 Scholar No: `2311401168`  
+
+🎓 Electronics & Communication Engineering  
+🏛️ MANIT Bhopal
+""")
 # ---------------- OLLAMA HELPERS ---------------- #
+
+
 
 def ollama_available(timeout_s: int = 2) -> bool:
     try:
