@@ -413,13 +413,21 @@ if query:
 
     for _, row in top_df.iterrows():
 
+        start_time = seconds_to_hms(row["start"])
+        end_time = seconds_to_hms(row["end"])
+
         st.markdown(
             f"""
             <div class='result-card'>
-            <h4>Video {row['number']}</h4>
-            <b>{row['title']}</b><br><br>
-            ⏱️ {seconds_to_hms(row['start'])} → {seconds_to_hms(row['end'])}<br><br>
-            {str(row['text'])[:300]}...
+                <h4>📹 Video {row['number']}</h4>
+        
+                <b>{row['title']}</b><br><br>
+        
+                🕒 <span style="color:#60A5FA;font-weight:600">
+                {start_time} - {end_time}
+                </span><br><br>
+        
+                {str(row['text'])[:250]}...
             </div>
             """,
             unsafe_allow_html=True
