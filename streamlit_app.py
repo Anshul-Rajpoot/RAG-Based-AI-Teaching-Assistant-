@@ -1,6 +1,4 @@
-from pathlib import Path
 
-code = r'''
 # ===============================
 # PROFESSIONAL RAG TEACHING ASSISTANT
 # ===============================
@@ -427,9 +425,3 @@ if query:
             """,
             unsafe_allow_html=True
         )
-'''
-
-path = "/mnt/data/Professional_RAG_UI_App.py"
-Path(path).write_text(code)
-
-print(path)
