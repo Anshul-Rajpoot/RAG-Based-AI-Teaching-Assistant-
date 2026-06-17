@@ -412,19 +412,21 @@ if query:
 
     else:
 
-        st.info(
-            "🔍 Retrieval Mode Active — Ollama not detected."
+        st.success(
+            "🔍 Retrieval Mode Active"
         )
-
-        st.markdown(
-            """
-            <div class='answer-box'>
-            Showing the most relevant video segments below.
-            Start Ollama to get AI-generated explanations.
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        
+        st.markdown("""
+        <div class='answer-box'>
+        <b>Semantic Search is running.</b><br><br>
+        
+        This deployed version uses TF-IDF retrieval to search the course videos and
+        display the most relevant lecture segments.
+        
+        AI-generated explanations using Llama 3.2 are available only when the
+        application is connected to a local or remote Ollama server.
+        </div>
+        """, unsafe_allow_html=True)
 
     st.subheader("📹 Relevant Video Segments")
 
