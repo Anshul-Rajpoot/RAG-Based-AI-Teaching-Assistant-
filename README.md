@@ -60,7 +60,7 @@ The assistant retrieves the most relevant subtitle chunks from the course conten
 Clone the repository:
 
 ```bash
-git clone <your-repo-link>
+git clone https://github.com/Anshul-Rajpoot/RAG-Based-AI-Teaching-Assistant-.git
 cd rag-based-ai-teaching-assistant
 ```
 
