@@ -93,16 +93,16 @@ with st.sidebar:
     # --------------------------------------------------
 # SIDEBAR
 # --------------------------------------------------
-st.sidebar.title("🎓 Project Info")
-st.sidebar.markdown("""
-### 👨‍💻 Developer
 
-**Anshul Rajpoot**  
-📘 Scholar No: `2311401168`  
-
-🎓 Electronics & Communication Engineering  
-🏛️ MANIT Bhopal
-""")
+    st.sidebar.markdown("""
+    ### 👨‍💻 Developer
+    
+    **Anshul Rajpoot**  
+    📘 Scholar No: `2311401168`  
+    
+    🎓 Electronics & Communication Engineering  
+    🏛️ MANIT Bhopal
+    """)
 
     st.divider()
 
