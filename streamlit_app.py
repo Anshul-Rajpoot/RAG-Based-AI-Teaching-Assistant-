@@ -85,10 +85,24 @@ with st.sidebar:
     st.title("🎓 Sigma AI Assistant")
 
 
-    with st.expander("👨‍💻 Developer", expanded=True):
-        st.write("Anshul Rajpoot  (2311401168)")
-        st.write("MANIT Bhopal")
-        st.write("ECE Department")
+    # with st.expander("👨‍💻 Developer", expanded=True):
+    #     st.write("Anshul Rajpoot  (2311401168)")
+    #     st.write("MANIT Bhopal")
+    #     st.write("ECE Department")
+
+    # --------------------------------------------------
+# SIDEBAR
+# --------------------------------------------------
+st.sidebar.title("🎓 Project Info")
+st.sidebar.markdown("""
+### 👨‍💻 Developer
+
+**Anshul Rajpoot**  
+📘 Scholar No: `2311401168`  
+
+🎓 Electronics & Communication Engineering  
+🏛️ MANIT Bhopal
+""")
 
     st.divider()
 
