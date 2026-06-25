@@ -26,56 +26,56 @@ st.set_page_config(
     layout="wide",
 )
 
-# --------------------------------------------------
-# CUSTOM CSS
-# --------------------------------------------------
-st.markdown("""
-<style>
+# # --------------------------------------------------
+# # CUSTOM CSS
+# # --------------------------------------------------
+# st.markdown("""
+# <style>
 
-.main {
-    background-color:#0E1117;
-}
+# .main {
+#     background-color:#0E1117;
+# }
 
-.block-container {
-    padding-top:1rem;
-}
+# .block-container {
+#     padding-top:1rem;
+# }
 
-.hero {
-    text-align:center;
-    padding:20px;
-    margin-bottom:20px;
-}
+# .hero {
+#     text-align:center;
+#     padding:20px;
+#     margin-bottom:20px;
+# }
 
-.metric-box {
-    background:#1E293B;
-    padding:15px;
-    border-radius:12px;
-}
+# .metric-box {
+#     background:#1E293B;
+#     padding:15px;
+#     border-radius:12px;
+# }
 
-.answer-box {
-    background:#111827;
-    border:1px solid #374151;
-    padding:20px;
-    border-radius:15px;
-}
+# .answer-box {
+#     background:#111827;
+#     border:1px solid #374151;
+#     padding:20px;
+#     border-radius:15px;
+# }
 
-.result-card {
-    background:#111827;
-    border-left:5px solid #3B82F6;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:10px;
-}
+# .result-card {
+#     background:#111827;
+#     border-left:5px solid #3B82F6;
+#     padding:15px;
+#     border-radius:10px;
+#     margin-bottom:10px;
+# }
 
-.stButton button {
-    width:100%;
-    border-radius:10px;
-    height:3rem;
-    font-weight:bold;
-}
+# .stButton button {
+#     width:100%;
+#     border-radius:10px;
+#     height:3rem;
+#     font-weight:bold;
+# }
 
-</style>
-""", unsafe_allow_html=True)
+# </style>
+# """, unsafe_allow_html=True)
 
 # --------------------------------------------------
 # SIDEBAR
